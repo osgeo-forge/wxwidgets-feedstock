@@ -1,0 +1,49 @@
+{% set version = "3.1.2" %}
+
+package:
+  name: wxwidgets
+  version: {{ version }}
+
+source:
+  - url: https://github.com/wxWidgets/wxWidgets/releases/download/v3.1.2/wxWidgets-3.1.2.tar.bz2  # [not win]
+    sha256: 4cb8d23d70f9261debf7d6cfeca667fc0a7d2b6565adb8f1c484f9b674f1f27a  # [not win]
+  - url: https://github.com/wxWidgets/wxWidgets/releases/download/v3.1.2/wxWidgets-3.1.2.zip  # [win]
+    sha256: 185845f052db1b1d984217504c49fc88daee68e55060682a44f6a6d6452ce728  # [win]
+
+build:
+  number: 0
+
+requirements:
+  build:
+    - {{ compiler('c') }}
+    - {{ compiler('cxx') }}
+    - cmake
+    - gcc    # [unix]
+    - jom    # [win]
+  host:
+    - expat
+    - jpeg
+    - libpng
+    - libtiff
+    - zlib
+
+
+about:
+  home: https://www.wxwidgets.org
+  license: GPL-2.0
+  license_family: GPL
+  license_file: docs/licence.txt
+  summary: wxWidgets is a C++ library that lets developers create applications for many platforms with a single code base
+  description: |
+     wxWidgets is a C++ library that lets developers create applications for
+     Windows, macOS, Linux and other platforms with a single code base. It has
+     popular language bindings for Python, Perl, Ruby and many other languages,
+     and unlike other cross-platform toolkits, wxWidgets gives applications a
+     truly native look and feel because it uses the platform's native API rather
+     than emulating the GUI. It's also extensive, free, open-source and mature.
+  dev_url: https://www.wxwidgets.org/develop/
+  doc_url: https://www.wxwidgets.org/docs/
+
+extra:
+  recipe-maintainers:
+    - dakcarto
