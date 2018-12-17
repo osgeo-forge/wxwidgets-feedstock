@@ -21,11 +21,6 @@ requirements:
     - gcc    # [unix]
     - jom    # [win]
   host:
-    - expat
-    - jpeg
-    - libpng
-    - libtiff
-    - zlib
 
 test:
   commands:
