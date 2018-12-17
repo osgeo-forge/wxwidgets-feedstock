@@ -27,6 +27,12 @@ requirements:
     - libtiff
     - zlib
 
+test:
+  commands:
+    - if not exist %LIBRARY_INC%\wx\version.h exit 1  # [win]
+    - if not exist %LIBRARY_LIB%\vc_x64_dll\mswu\wx\setup.h exit 1  # [win]
+    - if not exist %LIBRARY_LIB%\vc_x64_dll\wxmsw31u_core.lib exit 1  # [win]
+    - if not exist %LIBRARY_LIB%\vc_x64_dll\wxbase312u_vc_x64.dll exit 1  # [win]
 
 about:
   home: https://www.wxwidgets.org
